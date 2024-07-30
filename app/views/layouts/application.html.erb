@@ -16,7 +16,7 @@
       <%= yield %>
     </main>
     <% if current_user %>
-      <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+      <%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "nav-link" %>
     <% end %>
   </body>
 </html>
