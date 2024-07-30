@@ -4,9 +4,9 @@
   <% end %>
 
   <% if admin_signed_in? %>
-    <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+    <%= button_to 'Logout', destroy_admin_session_path, method: :delete, class: 'btn btn-link' %>
   <% else %>
-    <%= link_to 'Admin Login', new_admin_session_path %>
+    <%= link_to 'Login', new_admin_session_path %>
   <% end %>
 
   <% content_for :title, "The Best Products" %>
