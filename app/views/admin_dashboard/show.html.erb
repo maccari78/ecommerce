@@ -1,0 +1,14 @@
+<h2>Admin Dashboard</h2>
+<%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+
+<h3>Products</h3>
+<%= link_to 'New Product', new_product_path %>
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, product %>
+      <%= link_to 'Edit', edit_product_path(product) %>
+      <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
