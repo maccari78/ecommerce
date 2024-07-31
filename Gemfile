@@ -78,3 +78,5 @@ gem 'tailwind_devise', '~> 0.0.1'
 gem 'htmlbeautifier'
 
 gem 'rubocop', require: false
+
+gem "pry-rails", "~> 0.3.11"

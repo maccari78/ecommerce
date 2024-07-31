@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    
+    <%= stylesheet_link_tag "tailwind", "trix", "inter-font", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "trix", "data-turbo-track": "reload" %>
   </head>
 
   <body class="bg-gradient-to-r from-indigo-500 via-purple-300 to-indigo-200">

@@ -1,6 +1,6 @@
-class ProductsController < ApplicationController
-  before_action :check_admin_priv, except: ["index", "show"]
-  before_action :set_product, only: %i[ show edit update destroy ]
+class ProductsController < ApplicationController # rubocop:disable Style/FrozenStringLiteralComment,Style/Documentation
+  before_action :check_admin_priv, except: ["index", "show"] # rubocop:disable Style/WordArray
+  before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products or /products.json
   def index
@@ -37,8 +37,10 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+    new_product_params = product_params.to_unsafe_h
+    new_product_params.delete("images") if new_product_params["images"].all?(&:blank?)
     respond_to do |format|
-      if @product.update(product_params)
+      if @product.update(new_product_params)
         format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -59,13 +61,14 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:name, :description, :price, images: [])
+    def product_params # rubocop:disable Layout/IndentationWidth,Layout/IndentationConsistency
+      params.require(:product).permit(:name, :description, :price, :category_id, images: [])
     end
 end
