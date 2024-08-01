@@ -80,3 +80,5 @@ gem 'htmlbeautifier'
 gem 'rubocop', require: false
 
 gem "pry-rails", "~> 0.3.11"
+
+gem "stripe", "~> 12.4"
