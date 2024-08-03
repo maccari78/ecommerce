@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do # rubocop:disable Style/FrozenStringLiteralComment
   resources :categories
   devise_for :admins
   resources :products do

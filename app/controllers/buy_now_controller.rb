@@ -16,15 +16,18 @@ class BuyNowController < ApplicationController # rubocop:disable Style/Documenta
       },
       quantity: 1, # rubocop:disable Style/TrailingCommaInHashLiteral
     }],
+    shipping_address_collection:{ # rubocop:disable Layout/SpaceAfterColon,Layout/HashAlignment
+      allowed_countries: STRIPE_SUPPORTED_COUNTRIES
+    },
     mode: 'payment',
-    return_url: success_product_buy_now_url(@product), # rubocop:disable Style/StringConcatenation,Style/TrailingCommaInHashLiteral
+    return_url: success_product_buy_now_url(@product), # rubocop:disable Style/StringConcatenation,Style/TrailingCommaInHashLiteral,Lint/RedundantCopDisableDirective
   }) # rubocop:disable Layout/FirstHashElementIndentation
 
-  render json: { clientSecret: session.client_secret } # rubocop:disable Layout/SpaceInsideHashLiteralBraces,Layout/IndentationConsistency
+  render json: { clientSecret: session.client_secret } # rubocop:disable Layout/SpaceInsideHashLiteralBraces,Layout/IndentationConsistency,Lint/RedundantCopDisableDirective
   end
 
   def success
-     # rubocop:disable Layout/TrailingWhitespace
+     # rubocop:disable Layout/TrailingWhitespace,Lint/RedundantCopDisableDirective,Layout/CommentIndentation
   end
 
   private

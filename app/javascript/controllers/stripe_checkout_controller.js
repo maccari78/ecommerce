@@ -1,13 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 import { post } from "@rails/request.js"
 
-// Connects to data-controller="stripe-checkout"
 export default class extends Controller {
   static values = { url: String }
+
   async connect() {
-    console.log(document.head.querySelector("meta[name='stripe-pk']").content)
-    let publicKey = document.head.querySelector("meta[name='stripe-pk']").content
-    const stripe = Stripe(publicKey)
+    const stripePublicKey = document.head.querySelector("meta[name='stripe-pk']").content
+    const stripe = Stripe(stripePublicKey)
+
     const fetchClientSecret = async () => {
       const response = await post(this.urlValue);
       const { clientSecret } = await response.json;
@@ -18,9 +18,7 @@ export default class extends Controller {
       fetchClientSecret,
     });
   
-    // Mount Checkout
     checkout.mount(this.element);
-
     }
   }
 
