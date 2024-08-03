@@ -11,4 +11,4 @@ stripe:
     sk: sk_test_51Pj78LBQ2m3gctAxgwYHaeEN00iuKQb1v1YjPs9otGeSh7ACKaCLDEMjqpj07WvCcY5oIDKCxd7dBAmnHdyqMgNB0009FcEr4G
 
 # Build A Shopping Cart Ruby on Rails | E-Commerce App PT 4
-<https://www.youtube.com/watch?v=UCELGn8ad0k&list=PL2jr-nMCjDOtbUmoIBxQUr-__U-WW9jCu&index=5>
+<https://www.youtube.com/watch?v=UCELGn8ad0k&list=PL2jr-nMCjDOtbUmoIBxQUr-__U-WW9jCu&index=5> hasta minuto 31:00

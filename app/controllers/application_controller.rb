@@ -1,26 +1,23 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :current_admin
-    protected
+  before_action :set_current_cart
+  helper_method :current_user, :current_admin
 
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end
-  
-    def current_admin
-      current_admin = warden.authenticate(scope: :admin)
-    end
-  
-    def authenticate_user!
-      redirect_to login_path unless current_user
-    end
+  protected
 
-    def authenticate_admin!
-      redirect_to new_admin_session_path unless current_admin
-    end
+  def check_admin_priv
+    return if current_admin
 
-    def check_admin_priv
-        if !current_admin
-            redirect_to root_path
-        end
+    redirect_to root_path
+  end
+
+  private
+
+  def set_current_cart
+    if session[:current_cart_id]
+      @current_cart = Cart.find_by_secret_id(session[:current_cart_id])
+    else
+      @current_cart = Cart.create
+      session[:current_cart_id] = @current_cart.secret_id
     end
+  end
 end

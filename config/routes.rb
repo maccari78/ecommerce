@@ -7,6 +7,8 @@ Rails.application.routes.draw do # rubocop:disable Style/FrozenStringLiteralComm
     end
   end
 
+  resources :carts, only: [:create]
+
   resource :admin, only: [:show], controller: :admin
 
   get 'up' => 'rails/health#show', as: :rails_health_check
